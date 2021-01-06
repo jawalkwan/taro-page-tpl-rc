@@ -1,65 +1,20 @@
-# taro-page-tpl-rc README
+## 什么是Taro-page-tpl-rc
+---
+Taro是个多平台小程序开发框架这个不用我多说了吧？是京东团队里一帮奥特曼信徒搞的一个程序员帮助（为难）程序员的🐂🍺框架。
+这么说吧，在VSCode里新建一个Taro（React）的页面我觉得挺麻烦的，程序员不是高科技偷懒专业户嘛，就写个小插件帮助我新建页面。
 
-This is the README for your extension "taro-page-tpl-rc". After writing up a brief description, we recommend including the following sections.
+## 如何使用插件
+---
+哦，先了解一下什么叫じかよう吧！
+じかよう写成汉字叫“自家用”
+不是豆腐店，不是AE86
+所以，这个插件仅针对我目前的项目，后面如果有拓展到其他项目再根据实际情况修改。
+如果有什么需求也可以在Issues提一下，看心情丰富进去。
 
-## Features
+## 如何自主修改这个插件
+---
+有的用就行了，为什么要修改呢？
+vscode的插件库里大把类似的插件，他们兼容的不错，可以试试！
+如果你非要在我的基础上修改的话，也不是不行，你看下面，如果下面出现了个链接的话，点进去就是vscode插件开发的教程，或者说是我总结的教程，不啰嗦，一步到位！
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+（链接占位）😁
