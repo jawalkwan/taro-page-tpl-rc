@@ -8,7 +8,14 @@ const traverse = require("@babel/traverse").default;
 const generate = require("@babel/generator").default;
 const babelType = require("@babel/types");
 const prettier = require("prettier");
+const setPageConfig = require('./utils/setPageConfig');
 var mContext;
+var params = {
+	fileName: '',
+	fullPath: '',
+	pageTitle: '',
+	navStyle: 'default'
+};
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -23,19 +30,39 @@ function activate(context) {
 		// 文件夹绝对路径
 		const folderPath = param.fsPath;
 
-		//弹窗获取文件名
-		const options = {
+		// 调出系统输入框获取组件名
+		vscode.window.showInputBox({
 			prompt: "请输入页面名称: ",
 			placeHolder: "页面名称"
-		}
-
-		// 调出系统输入框获取组件名
-		vscode.window.showInputBox(options).then(value => {
+		}).then(value => {
 			if (!value) return;
 
-			const componentName = value;
-			const fullPath = `${folderPath}/${componentName}`;
-			generatePage(componentName, fullPath);
+			params.fileName = value;
+			params.fullPath = `${folderPath}/${params.fileName}`;
+			vscode.window.showInputBox({
+				prompt: "请输入页面标题: ",
+				placeHolder: "页面标题"
+			}).then(value => {
+				if (!value) return;
+
+				params.pageTitle = value;
+				vscode.window.showQuickPick(
+					[
+						"custom",
+						"default"
+					],
+					{
+						canPickMany: false,
+						ignoreFocusOut: true,
+						matchOnDescription: true,
+						matchOnDetail: true,
+						placeHolder: '请选择导航栏类型'
+					})
+					.then(function (style) {
+						params.navStyle = style;
+						generatePage();
+					});
+			});
 		});
 
 	});
@@ -48,20 +75,22 @@ exports.activate = activate;
 // this method is called when your extension is deactivated
 function deactivate() { }
 
-var generatePage = function (componentName, fullpath) {
+var generatePage = function () {
 	//建立目录
-	fs.mkdir(fullpath, err => {
+	fs.mkdir(params.fullPath, err => {
 		if (err === null) {
 			//拷贝文件
 			var temp = path.join(mContext.extensionPath, 'template');
 			fs.readdir(temp, {}, (err, data) => {
 				if (err === null) {
 					for (var index in data) {
-						fs.copyFile(path.join(temp, String(data[index])), path.join(fullpath, String(data[index])), err => {
+						fs.copyFile(path.join(temp, String(data[index])), path.join(params.fullPath, String(data[index])), err => {
 						});
 					}
+					// 修改index.config.js
+					setPageConfig(params.fullPath, params.pageTitle, params.navStyle);
 					// 修改app.config.js
-					addPageRouter(fullpath);
+					// addPageRouter();
 				}
 			});
 		} else {
@@ -70,15 +99,15 @@ var generatePage = function (componentName, fullpath) {
 					vscode.window.showErrorMessage("该目录已经存在!");
 					break;
 				default:
-					console.log(err.code);
+					vscode.window.showErrorMessage("未知错误，错误代码：" + err.code);
 					break;
 			}
 		}
 	});
 }
 
-var addPageRouter = function (fullpath) {
-	const srcSplit = fullpath.split("src/");
+var addPageRouter = function () {
+	const srcSplit = params.fullPath.split("src/");
 	const appConfigPath = `${srcSplit[0]}src/app.config.js`;
 	const pageRoute = srcSplit[1] + '/index';
 

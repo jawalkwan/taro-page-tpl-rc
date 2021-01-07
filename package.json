@@ -2,7 +2,13 @@
 	"name": "taro-page-tpl-rc",
 	"displayName": "taro-page-tpl-rc",
 	"description": "taro page template snippets plugin with react for vscode",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"publisher": "DelayHsiao",
+	"icon": "assets/taro-ico.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/delayhsiao/taro-page-tpl-rc.git"
+	},
 	"engines": {
 		"vscode": "^1.52.0"
 	},
@@ -24,7 +30,7 @@
 			"explorer/context": [
 				{
 					"command": "extension.createFunctionalComponent",
-					"group": "生成Taro页面"
+					"group": "1_modification"
 				}
 			]
 		}
