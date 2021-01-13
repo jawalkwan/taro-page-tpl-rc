@@ -2,7 +2,7 @@
 	"name": "taro-page-tpl-rc",
 	"displayName": "taro-page-tpl-rc",
 	"description": "taro page template snippets plugin with react for vscode",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "DelayHsiao",
 	"icon": "assets/taro-ico.png",
 	"repository": {

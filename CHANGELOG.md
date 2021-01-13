@@ -8,6 +8,9 @@ All notable changes to the "taro-page-tpl-rc" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.3] - 2021-01-13
+### Fixed
+- fixed add page route in app.config.js when page created.
 
 ## [0.0.2] - 2021-01-07
 ### Changed

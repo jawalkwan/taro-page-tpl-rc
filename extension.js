@@ -90,7 +90,7 @@ var generatePage = function () {
 					// 修改index.config.js
 					setPageConfig(params.fullPath, params.pageTitle, params.navStyle);
 					// 修改app.config.js
-					// addPageRouter();
+					addPageRouter();
 				}
 			});
 		} else {
